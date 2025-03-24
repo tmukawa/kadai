@@ -12,34 +12,30 @@ image_path = st.text_input("画像のパスを入力してください", "/image
 
 # 送信ボタン
 if st.button("分析を実行"):
-    if image_path:
-        # APIにリクエストを送信
-        response = requests.post(API_URL, json={"image_path": image_path})
-
-        # 結果を表示
-        if response.status_code == 200:
+    if not image_path:
+        st.warning("画像パスを入力してください。")
+    else:
+        try:
+            # APIにリクエストを送信
+            response = requests.post(API_URL, json={"image_path": image_path})
+            response.raise_for_status()
             result = response.json()
-            
-            # レスポンスのdataからsuccessフィールドをチェック
-            if result.get("data", {}).get("success", False):  
-                st.success("分析成功！")
-                
-                # class_labelの値を取得して表示
-                estimated_data = result.get("data", {}).get("estimated_data", {})
-                class_label = estimated_data.get("class", "なし")
-                st.subheader("画像が所属するクラス")
-                st.write(f"Class: {class_label}")
 
+            if result.get("data", {}).get("success", False):
+                st.success("分析成功！")
+                estimated_data = result["data"].get("estimated_data", {})
+                st.subheader("画像が所属するクラス")
+                st.write(f"Class: {estimated_data.get('class', 'なし')}")
             else:
                 st.error("分析失敗！")
-                error_message = result.get("data", {}).get("message", result.get("message", "不明なエラー"))
-                st.write(f"エラーメッセージ: {error_message}")
+                error_message = result.get("data", {}).get("message", "不明なエラー")
+                st.error(error_message)
 
-            # JSON全体を表示
             st.subheader("解析結果 (JSON)")
             st.json(result)
 
-        else:
-            st.error("サーバーエラーが発生しました。")
-    else:
-        st.warning("画像パスを入力してください。")
+        except requests.exceptions.RequestException as e:
+            st.error("サーバーに接続できませんでした。")
+            st.error(str(e))
+        except ValueError:
+            st.error("サーバーからのレスポンスが不正な形式です。")

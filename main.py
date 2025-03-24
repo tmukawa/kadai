@@ -7,8 +7,6 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from contextlib import asynccontextmanager
 
-app = FastAPI()
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # アプリケーションの起動時にDB初期化
