@@ -6,7 +6,7 @@
 
 ## ファイル構成
 ```
-./project_root
+./kadai
 │── database.py      # データベース定義
 │── main.py          # APIサーバー（FastAPI）
 │── mock_api.py      # モック画像分析API（FastAPI）
