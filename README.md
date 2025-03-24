@@ -44,3 +44,18 @@ uvicorn mock_api:app --host 127.0.0.1 --port 8001 --reload
 streamlit run ui.py
 ```
 
+## 動作確認
+### curlを使う場合
+API に対して curl コマンドを用いてリクエストを送信し、動作を確認できます。
+- リクエスト例
+```
+curl -X 'POST' 'http://127.0.0.1:8000/analyze/' -H 'Content-Type: application/json' -d '{"image_path": "/image/d03f1d36ca69348c51aa/c413eac329e1c0d03/test.jpg"}'
+```
+成功時のレスポンス例:
+```
+{"message":"Data saved successfully","data":{"success":true,"message":"success","estimated_data":{"class":9,"confidence":0.9968}}}
+```
+失敗時のレスポンス例:
+```
+{"message":"Data saved successfully","data":{"success":false,"message":"Error:E50012","estimated_data":{}}}
+```
