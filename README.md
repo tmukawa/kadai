@@ -14,4 +14,13 @@
 │── requirements.txt # 依存パッケージ一覧
 └── ai_analysis.db   # SQLiteデータベース（APIサーバ起動時に自動生成）
 ```
-.
+
+## 環境情報
+| 言語・フレームワーク | バージョン |
+| -------------------- | ---------- |
+| Python                | 3.13.1       |
+| SQLite                | 3.43.2     |
+| FastAPI           | 0.115.11     |
+| Streamlit              | 1.43.2   |
+
+※ その他の依存パッケージは'requirements.txt' を参照
