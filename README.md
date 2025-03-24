@@ -81,3 +81,29 @@ streamlit run ui.py
 指定する画像パスに<ins>**error**</ins>が含まれる場合、モックAPIは失敗時のレスポンスとなります。
 
 それ以外は成功時のレスポンスとなります。
+
+## データベースの確認
+モックAPIのレスポンスをデータベースに保存できたか確認する場合は、以下の手順で確認することができます。
+
+### 1. データベースに接続する
+```
+sqlite3 ai_analysis.db 
+```
+### 2. ヘッダー表示を有効にする
+```
+.headers on
+```
+### 3. ヘッダー表示モードをカラムにする
+```
+.mode column
+```
+### 4. 最新データを1行出力する
+```
+SELECT * FROM ai_analysis_log order by request_timestamp desc limit 1;
+```
+出力結果例
+```
+  id  image_path                                              success  message  class_label  confidence  request_timestamp           response_timestamp        
+--  ------------------------------------------------------  -------  -------  -----------  ----------  --------------------------  --------------------------
+43  /image/d03f1d36ca69348c51aa/c413eac329e1c0d03/test.jpg  1        success  9            0.6973      2025-03-24 23:11:09.542731  2025-03-24 23:11:09.556960
+```
