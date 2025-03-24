@@ -103,7 +103,7 @@ SELECT * FROM ai_analysis_log order by request_timestamp desc limit 1;
 ```
 出力結果例
 ```
-  id  image_path                                              success  message  class_label  confidence  request_timestamp           response_timestamp        
+id  image_path                                              success  message  class_label  confidence  request_timestamp           response_timestamp        
 --  ------------------------------------------------------  -------  -------  -----------  ----------  --------------------------  --------------------------
 43  /image/d03f1d36ca69348c51aa/c413eac329e1c0d03/test.jpg  1        success  9            0.6973      2025-03-24 23:11:09.542731  2025-03-24 23:11:09.556960
 ```
