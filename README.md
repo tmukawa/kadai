@@ -66,8 +66,18 @@ curl -X 'POST' 'http://127.0.0.1:8000/analyze/' -H 'Content-Type: application/js
 streamlit run ui.py
 ```
 
-画像パスをフィールドに入力し、[分析を実行]をクリックします
-<img width="819" alt="Image" src="https://github.com/user-attachments/assets/67e3fa75-4915-4bb6-a615-6405552d3133" />
+#### 画像パスをフィールドに入力し、[分析を実行]をクリックします
+<img width="725" alt="Image" src="https://github.com/user-attachments/assets/715eed56-ec57-4e69-b5ce-8f2ce6e0e72a" />
 
-成功時のレスポンス例:
-<img width="731" alt="Image" src="https://github.com/user-attachments/assets/d6dde0d4-98dc-4ef5-8c8c-27da3218e647" />
+#### 成功時のレスポンス例:
+
+<img width="725" alt="Image" src="https://github.com/user-attachments/assets/ea59b81d-f8a4-47c0-99f1-bdc96e473df9" />
+
+#### 失敗時のレスポンス例:
+
+<img width="725" alt="Image" src="https://github.com/user-attachments/assets/4f2a5e18-9844-4b6e-ba3c-cefba14cbf23" />
+
+### 指定する画像パスについて
+指定する画像パスに<ins>**error**</ins>が含まれる場合、モックAPIは失敗時のレスポンスとなります。
+
+それ以外は成功時のレスポンスとなります。
