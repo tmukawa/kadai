@@ -47,7 +47,7 @@ streamlit run ui.py
 ## 動作確認
 ### curlを使う場合
 API に対して curl コマンドを用いてリクエストを送信し、動作を確認できます。
-- リクエスト例
+リクエスト例:
 ```
 curl -X 'POST' 'http://127.0.0.1:8000/analyze/' -H 'Content-Type: application/json' -d '{"image_path": "/image/d03f1d36ca69348c51aa/c413eac329e1c0d03/test.jpg"}'
 ```
@@ -59,3 +59,11 @@ curl -X 'POST' 'http://127.0.0.1:8000/analyze/' -H 'Content-Type: application/js
 ```
 {"message":"Data saved successfully","data":{"success":false,"message":"Error:E50012","estimated_data":{}}}
 ```
+
+### 簡易UIを使う場合
+以下のコマンドを用いてUIを起動します。
+```
+streamlit run ui.py
+```
+
+画像パスをフィールドに入力し、[分析を実行]をクリックします。
