@@ -24,3 +24,23 @@
 | Streamlit              | 1.43.2   |
 
 ※ その他の依存パッケージは'requirements.txt' を参照
+
+## セットアップ
+### 1. 必要なパッケージのインストール
+```
+pip install -r requirements.txt
+```
+### 2. APIサーバーの起動
+データベースは API サーバー起動時に自動生成されるため、特別な初期化処理は不要です。
+```
+uvicorn main:app --reload
+```
+### 3. モックAPIの起動
+```
+uvicorn mock_api:app --host 127.0.0.1 --port 8001 --reload
+```
+### 4. 簡易UIの起動
+```
+streamlit run ui.py
+```
+
