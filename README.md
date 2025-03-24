@@ -68,3 +68,6 @@ streamlit run ui.py
 
 画像パスをフィールドに入力し、[分析を実行]をクリックします
 <img width="819" alt="Image" src="https://github.com/user-attachments/assets/67e3fa75-4915-4bb6-a615-6405552d3133" />
+
+成功時のレスポンス例:
+<img width="731" alt="Image" src="https://github.com/user-attachments/assets/d6dde0d4-98dc-4ef5-8c8c-27da3218e647" />
